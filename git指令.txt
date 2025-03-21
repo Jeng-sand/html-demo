@@ -40,7 +40,7 @@ git log --oneline
 git branch
 
 #產生分支
-git 
+- git checkout -b (檔名) 
 
 13.切換commit&branch
 git checkout 191263
@@ -69,8 +69,21 @@ git checkout master
 
 
 18.加上雲端倉庫
+- git remote add  origin https://github.com/Jeng-sand/html-demo.git
+- - git remote add origin1 https://github.com/Jeng-sand/html-demo.git
 
-19.-git remoto -v
+19.推送
+- git push =u origin master
+- git push
+
+20.檢視雲端倉庫ur1
+- git remote -v
+- origin  https://github.com/Jeng-sand/html-demo.git (push)
+
+21.複製專案
+- git clone https://github.com/Jeng-sand/html-demo
+
+
 
 
 ### 常用指令
