@@ -83,7 +83,8 @@ git checkout master
 21.複製專案
 - git clone https://github.com/Jeng-sand/html-demo
 
-
+22.加入暫存
+- git restore --staged <filename>
 
 
 ### 常用指令
