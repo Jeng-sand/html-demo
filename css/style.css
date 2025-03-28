@@ -1,0 +1,30 @@
+/*共用css區*/
+
+body{
+    text-align: center;
+    /*body 的背景顏色設定為一種淡藍色 #f0f8ff*/
+    background-color: #d8f2da; /*改變背景顏色*/
+    font-family: '標楷體', Courier, monospace;
+}
+.title{
+    color: rgb(255, 89, 34);
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(255, 223, 186, 0.8);
+    /* 1rem=16px */
+    font-size: 1.5rem; /*字型尺寸*/
+    display: inline-block;
+    width: 800px; /**/
+    margin: 10PX 20px ;
+    /* margin : 上 下 左 右*/
+    /* margin : 上下 左右 */
+    /* margin: all */
+    padding: 20px;
+    border: 1px solid red; /*實線*/
+    border-radius: 6px; /*圓矩狀*/
+}
+
+.main-title{
+    
+    background-color:  #d9e6f1; 
+    /* 淡藍色背景 */
+}

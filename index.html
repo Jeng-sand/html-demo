@@ -4,21 +4,47 @@
 <head>
     <meta charsrt="UTF-8">
     <title>首頁</title>
+    <link rel="stylesheet" href="css/style.css">
+
+   
 <!--head內影響所有-->
     <style>
-    h2{
-       color: rgb(226, 12, 12);
-       font-family: 'Times New Roman', Times, serif;
-        background-color: rgba(247, 159, 242, 0.986);
-        font-size: 2rem;
-        display: inline-block;
-        width: 600px;
+
+    /*  # 等於 id  */
+    #table-bmi{
+        background-color: aqua;
+        font-size: 1.2rem;
+        width: 50s%;
+        height: 300px;
+        margin: 0 auto; /* auto */
+    }
+    thead{
+        background-color: #ff7f50; /* 淡珊瑚橙色 */
     }
 
-    body{
-        background-color: rgba(248, 248, 143, 0.993);
-        font-family: '標楷體', Courier, monospace;
+    tbody{
+        background-color: #ff6347;/* 番茄紅色 */
     }
+
+    tr{
+        color: white;
+    }
+
+    thead tr{
+        color: black;
+    }
+    h3 {
+         /* 深灰色字體 */
+        color: #333333; 
+    }
+    .image_{
+        background-color: white;
+        padding: 12px;
+        border: 1px solid;
+        border-radius: 6px;
+        width: 30%;
+    }
+
     </style>
 </head>
 
@@ -28,17 +54,17 @@
 <img width="100%" src="https://img.freepik.com/free-vector/fitness-gym-training-twitch-banner_23-2150681508.jpg?t=st=1742559566~exp=1742563166~hmac=9a8dfeef487474ff6b4939df0d78e3ada43d0812121fa8d78db6867dc2412b45&w=900">
     
 </a>
-
-    <h1 style="color: rgba(24, 10, 221, 0.856);background-color: aqua;">我愛健身網站 </h1>
+    <!--/*style="color: rgba(24, 10, 221, 0.856);background-color: aqua;"*/-->
+    <h1 class="main-title title" > 我愛健身網站 </h1> 
     <h3>何謂健身?</h3>
-        <br>
+        <br
 
         健身，英文稱為workout，健身這兩個字拆開來的意思就是健康身體，
         通過各種運動方式或方法來增強力量、增加肌肉量、柔韌性、耐力，
         以及提高協調和控制身體各部分的能力來使我們的身體更強健。</h3>
     <p>
         除了塑造好身材，透過健身可以刺激我們身體的肌肉，再搭配飲食的控制，這能大大幫助我們的肌肉量增加，
-        以及讓我們的肌肉更加的結實。
+        以及讓我們的肌肉更加的結實。  
     </p>
     <em>如果你對健身仍然保持著懷疑的態度，那你大可以去看看你喜歡的健身老戲骨幹，
         他們是如何做到年過50/60歲，依舊在舞臺上或者是電影螢幕上綻放光彩。
@@ -48,8 +74,8 @@
 
 
     <hr>
-    <h2 style="color: brown;" >健身的10個好處</h2>
-    <ol type="1">
+    <div class="title" >健身的10個好處</div>
+    <ol type="1" style="text-align:left;">
     <li>增加基礎代謝率</li>
     <li>預防疾病和提高免疫力</li>
     <li>改善心情</li>
@@ -62,14 +88,14 @@
     <li>增加肌肉助於減肥</li>
     </ol>
 
-    <h2>好文章連結</h2>
+    <div class="title">好文章連結</div>
     <li><a target="_blank" href="https://www.peeta.tw/weight-loss/intermittent-fasting/">間歇性斷食法完整攻略</a></li>
     <li><a target="_blank" href="https://www.peeta.tw/ketogenic/what-is-ketogenic-diet/">什麼是生酮飲食？</a></li>
     <li><a target="_blank" href="https://www.peeta.tw/weight-loss/fat-loss-diet/">完整的減肥攻略大法</a></li>
     <li><a target="_blank" href="https://www.peeta.tw/weight-loss/yo-yo-effect/">溜溜球效應！如何不再越減越肥？</a></li>
 
-    <h2>一天所需卡路里</h2>
-    <table border="1">
+    <div class="title">一天所需卡路里</div>
+    <table id="table-bmi" border="1">
         <thead>
         <tr>
             <th>每天活動量</th>
@@ -99,26 +125,31 @@
         </tr>
     </tbody>
 </table>
+<div style="text-align: left; 12px">
 <a href="bmi.html">
-<b>計算BMI:</b>
+<b >計算BMI:</b>
 </a>
 &nbsp; &copy;
 一位民眾身高160公分，體重65公斤，BMI25.4kg/m2(=65÷1.6÷1.6)，體重屬於「過重」
    
 <b>計算所需熱量:</b>
 &nbsp; 因他的工作為坐辦公室，屬輕量工作，每天攝取熱量應在1300至1625大卡之間(=20~25大卡*65公斤)。
-
+</div>
 <hr>
-<h2>健身圖片</h2>
-<img width="30%" src="images/pic-1.jpg" alt="pic-1.jpg">
-<img width="30%" src="images/pic-2.jpg" alt="pic-2.jpg">
-<img width="30%" src="images/pic-3.jpg" alt="pic-3.jpg">
+<div class="title ">健身圖片 </div>
+<div>
+    <img class="image_" src="images/pic-1.jpg" alt="pic-1.jpg">
+    <img class="image_" src="images/pic-2.jpg" alt="pic-2.jpg">
+    <img class="image_" src="images/pic-3.jpg" alt="pic-3.jpg">
+</div>
 
-<h2>健身影片</h2>
-<!-- crt1+/+! -->
-<!-- <video controls src="video/SampleVideo_720x480_5mb.mp4"></video> -->
-<iframe width="1000px" height="600px" src="https://www.youtube.com/embed/LmrKejHOaG4" title="男女適用!! 20分鐘 站立式全身燃脂運動、不跳躍、不傷膝、簡單有效" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe width="1000px" height="600px" src="https://www.youtube.com/embed/tHLuHMAxlm0" title="沒錢不能健身？有錢人 vs 普通人 訓練菜單+飲食大公開！增肌效果差很大？！" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="title">健身影片</div>
+<div>
+    <!-- crt1+/+! -->
+    <!-- <video controls src="video/SampleVideo_720x480_5mb.mp4"></video> -->
+    <iframe width="1000px" height="600px" src="https://www.youtube.com/embed/LmrKejHOaG4" title="男女適用!! 20分鐘 站立式全身燃脂運動、不跳躍、不傷膝、簡單有效" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="1000px" height="600px" src="https://www.youtube.com/embed/tHLuHMAxlm0" title="沒錢不能健身？有錢人 vs 普通人 訓練菜單+飲食大公開！增肌效果差很大？！" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 </body>
 
 
