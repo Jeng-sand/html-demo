@@ -116,7 +116,12 @@ git checkout master
 13. git rest --hard HEAD
     git rest --hard HEAD~1 (~n) 切換前幾個
 
+14.git pull
+- 將雲端版本同步本地端
 
+15.合併commit
+- git add.
+- git commit --amend
 
 
 
