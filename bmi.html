@@ -125,5 +125,83 @@
 
     </form> 
     <a href="index.html">首頁</a>
+
+<!--  -->
+<script>
+    let x=10;
+    let y = 20;
+    let z = x + y ;
+
+    // 判斷式
+    if (x>10){
+    } else if (y > 20) {
+    } else {
+        console.log(x,y);
+    }
+
+    // and or not 
+    x = "10";
+    y = 10 ;
+
+    // 型態跟值
+    console.log(x == y);  //true
+    console.log(x === y); //false
+
+    // 兩個是否大於 10
+    // and=&& or=| not=!
+    // &&會報錯
+    if (x>=10 || y>=30) {
+        console.log("1"); 
+    
+    let a = false;
+    if (!a){
+        console.log(a);        
+    }
+
+    let height = prompt("請輸入身高: ");
+    let weight = prompt("請輸入體重: ");
+    let bmi=getBmi(height,weight);
+    
+    alert("BMI" + bmi);
+    
+
+    function getBmi(height,weight){
+        const bmi = weight / (height / 100) **2;
+        console.log(bmi.toFixed(2));    
+
+        return bmi.toFixed(2);
+
+    }
+
+    <!-- ctrl+/ -->
+
+    // console.log(x,y,z);
+
+    // // const 宣告為常數
+    // const pi = 3.1415926;
+    // // prompt輸入 ==print
+    // let radius = prompt("請輸入半徑: ");
+    // // 判斷是否數值
+    // if (isNaN(radius)){
+    //     alert("請輸入鄭數值!");
+        
+    // }else{
+    //     let area = radius * radius * pi;
+    //     const result ="半徑為: " + radius + "面積為: " + area
+
+    //     <!----三種輸出---->
+    //     // 結果輸出
+    //     console.log(result);
+    //     // 頁面顯示輸出
+    //     document.write("<h2>"+result+ "</h2>");
+    //     // 彈出對話框的輸出\
+    //     alert(result);
+
+
+    // }
+    }
+</script>
+<!-- 在body之上 -->
 </body>
+
 </html>
