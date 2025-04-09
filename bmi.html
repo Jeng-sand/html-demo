@@ -13,6 +13,7 @@
         }
 
         form {
+            position: relative;
             width: 40%;
             background-color: rgb(165, 210, 248);
             margin: 24px auto;
@@ -61,11 +62,15 @@
         }
 
         a {
+            /* 絕對位置 (相對於relative)  */
+            position: absolute;
             background-color: brown;
             color: white;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 5px;
+            border-radius: 8px;
             text-decoration: none;
+            /* right: 12px;
+            top: 12px; */
         }
 
         a:hover {
@@ -92,10 +97,6 @@
             font-size: 2.5rem;
         }
 
-        .info {
-            background-color: rgb(55, 173, 209);
-        }
-
         @media screen and (max-width: 768px) {
             form {
                 width: 80%;
@@ -112,11 +113,15 @@
 
 <body>
     <div class="main-title">BMI計算機</div>
+
+    <div id="record"></div>
+
+
     <form accept="">
         <label for="username">姓名</label>
-        <input id="username" name="username" type="text" placeholder="請輸入姓名"><br>
+        <input id="username" name="username" type="text" placeholder="請輸入姓名" value="sand"><br>
         <label for="age">年齡</label>
-        <input id="age" name="age" type="text" placeholder="18"><br>
+        <input id="age" name="age" type="text" placeholder="18" value="18"><br>
         <label for="height">身高</label>
         <input id="height" name="height" type="text" step="0.1" value="165"><br>
         <label for="weight">體重</label>
@@ -153,7 +158,7 @@
 
 
         <button type="button" onclick="calc()">計算</button>
-
+        <a href="index.html">首頁</a>
     </form>
 
     <div id="info">
@@ -166,7 +171,7 @@
         </span>
         <p class="comment"></p>
     </div>
-    <a href="index.html">首頁</a>
+
 
 
     <!--  -->
@@ -178,13 +183,18 @@
         const countyE1 = document.querySelector("#county");
         const sexE1 = document.querySelector("input[name='sex']:checked");
 
+        // 物件==>字典
+        let data = {
+            total: 0,
+            count: 0
+        }
+
 
         console.log(sexE1.value, countyE1.value, nameE1, ageE1, heightE1.value, weightE1.value);
 
         function calc() {
             let height = heightE1.value;
             let weight = weightE1.value;
-
             // 判斷height  跟 weight 要大於0跟數值not isNan
             // and ==> && or ==>||
             if (height <= 0 || weight <= 0) {
@@ -192,6 +202,9 @@
                 alert("請輸入正確數值!");
                 return;
             }
+
+            document.querySelector("#result").hidden = false;
+
             // 取得最新的選取
             let sexE1 = document.querySelector("input[name='sex']:checked");
             let userInfo = `${nameE1.value} 年齡:${ageE1.value} 性別:${sexE1.value} 縣市:${countyE1.value} `;
@@ -211,7 +224,15 @@
             bmiE1.style.color = result[1];
             document.querySelector(".comment").innerText = result[0];
 
+            // 記錄每一次的bmi值
+            // data['total'] += Number(bmi);
+            data.total += Number(bmi);
+            data.count += 1;
 
+            console.log(data);
+
+            let avg = (data.total / data.count).toFixed(1);
+            document.querySelector('#record').innerHTML = `紀錄人數:${data.cont} 平均BMI:${avg}`;
         }
 
         function getComment(bmi) {
