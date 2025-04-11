@@ -107,6 +107,11 @@
                 color: black;
 
             }
+
+            #record {
+                font-size: 32px;
+                margin-top: 24px;
+            }
         }
     </style>
 </head>
@@ -183,14 +188,26 @@
         const countyE1 = document.querySelector("#county");
         const sexE1 = document.querySelector("input[name='sex']:checked");
 
+        // console.log(sexE1.value, countyE1.value, nameE1, ageE1, heightE1.value, weightE1.value);
+
+
         // 物件==>字典
         let data = {
             total: 0,
             count: 0
         }
 
+        record = JOSN.parse(localStorage.getItem('record'));
+        if (record) {
+            data = record;
+            // 加入顯示紀錄動作
+            let avg = (data.total / data.count).toFixed(1);
+            document.querySelector('#record').innerHTML = `紀錄人數:${data.count} 平均BMI:${avg}`;
+        }
 
-        console.log(sexE1.value, countyE1.value, nameE1, ageE1, heightE1.value, weightE1.value);
+        console.log(data);
+
+
 
         function calc() {
             let height = heightE1.value;
@@ -231,9 +248,14 @@
 
             console.log(data);
 
-            let avg = (data.total / data.count).toFixed(1);
-            document.querySelector('#record').innerHTML = `紀錄人數:${data.cont} 平均BMI:${avg}`;
+
+
+            // 本地網頁儲存
+            localStorage.setItem('record', JSON.stringify(data));
+            //localStorage.setItem('bmi ', bmi);
         }
+
+
 
         function getComment(bmi) {
             let Comment, color;
