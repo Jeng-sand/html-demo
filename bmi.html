@@ -118,8 +118,10 @@
 
 <body>
     <div class="main-title">BMI計算機</div>
+    <botton type="button" style="background-color: orange;color: black;"></botton>
 
     <div id="record"></div>
+    <button type='button' id="deleteRecordBtn">刪除紀錄</button>
 
 
     <form accept="">
@@ -187,23 +189,41 @@
         const weightE1 = document.querySelector("#weight");
         const countyE1 = document.querySelector("#county");
         const sexE1 = document.querySelector("input[name='sex']:checked");
-
+        const deleteRecordBtn = document.querySelector('#deleteRecordBtn');
         // console.log(sexE1.value, countyE1.value, nameE1, ageE1, heightE1.value, weightE1.value);
 
+        console.log(deleteRecordBtn);
+
+        deleteRecordBtn.addEventListener('click', function () {
+            localStorage.removeItem('record');
+            // 刷新頁面
+            //window.localStorage.href = '';
+            //清除資料
+            data.total = 0;
+            data.count = 0;
+            document.querySelector('#record').innerHTML = '';
+        });
 
         // 物件==>字典
         let data = {
             total: 0,
             count: 0
         }
+        // 將物件轉換
+        record = JSON.parse(localStorage.getItem('record'));
+        //console.log(record);
 
-        record = JOSN.parse(localStorage.getItem('record'));
         if (record) {
             data = record;
             // 加入顯示紀錄動作
             let avg = (data.total / data.count).toFixed(1);
             document.querySelector('#record').innerHTML = `紀錄人數:${data.count} 平均BMI:${avg}`;
+
         }
+
+
+
+
 
         console.log(data);
 
@@ -247,8 +267,8 @@
             data.count += 1;
 
             console.log(data);
-
-
+            let avg = (data.total / data.count).toFixed(1);
+            document.querySelector('#record').innerHTML = `紀錄人數:${data.count} 平均BMI:${avg}`;
 
             // 本地網頁儲存
             localStorage.setItem('record', JSON.stringify(data));
