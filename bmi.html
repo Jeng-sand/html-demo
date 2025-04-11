@@ -87,6 +87,15 @@
             border: 1px dotted darkblue;
         }
 
+        table {
+            background-color: rgb(220, 255, 243);
+            margin: 0 auto;
+            width: 600px;
+            font-family: 'Courier New', Courier, monospace;
+            border-collapse: collapse;
+        }
+
+
         .comment {
             font-size: 1.5rem;
             font-weight: 200;
@@ -109,8 +118,14 @@
             }
 
             #record {
-                font-size: 32px;
-                margin-top: 24px;
+                font-size: 1rem;
+                width: 400px;
+                margin: 12px auto;
+
+            }
+
+            table {
+                width: 450px;
             }
         }
     </style>
@@ -179,6 +194,11 @@
         <p class="comment"></p>
     </div>
 
+    <div id="tableRecord">
+
+    </div>
+
+
 
 
     <!--  -->
@@ -196,12 +216,16 @@
 
         deleteRecordBtn.addEventListener('click', function () {
             localStorage.removeItem('record');
+            localStorage.removeItem('datas');
             // 刷新頁面
             //window.localStorage.href = '';
             //清除資料
+
             data.total = 0;
             data.count = 0;
+            datas = [];
             document.querySelector('#record').innerHTML = '';
+            document.querySelector('#tableRecord').innerHTML = '';
         });
 
         // 物件==>字典
@@ -209,13 +233,10 @@
             total: 0,
             count: 0
         }
-
-        let datas = [];
-
+        // 陣列
+        let datas = JSON.parse(localStorage.getItem('datas')) || [];
         // 將物件轉換
         record = JSON.parse(localStorage.getItem('record'));
-        //console.log(record);
-
         if (record) {
             data = record;
             // 加入顯示紀錄動作
@@ -226,9 +247,53 @@
 
 
 
+        function addRow(data) {
+            return `
+                <tr>
+                    <th>${data.name}</th>
+                    <th>${data.count}</th>
+                    <th>${data.age}</th>
+                    <th>${data.sex}</th>
+                    <th>${data.height}</th>
+                    <th>${data.weight}</th>
+                    <th>${data.bmi}</th>
+                </tr>
+                `
+        }
+
+        function renderTable(datas) {
+            console.log(123);
+
+            tableData = "";
+            for (let i = 0; i < datas.length; i++) {
+                console.log(i + 1, datas[i]);
+                tableData += addRow(datas[i]);
+
+            }
+            let tableHtml = `
+                    <table border='1px'>
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>縣市</th>
+                                <th>年齡</th>
+                                <th>姓別</th>
+                                <th>身高</th>
+                                <th>體重</th>
+                                <th>BMI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        ${tableData}
+                        </tbody>
+                    </table>
+                     `
+
+            console.log(tableHtml);
+            document.querySelector('#tableRecord').innerHTML = tableHtml;
+        }
 
 
-        console.log(data);
 
 
 
@@ -283,6 +348,8 @@
             localStorage.setItem('record', JSON.stringify(data));
             //localStorage.setItem('bmi ', bmi);
 
+            //讀取資料
+
 
             //儲存單筆資料
             let person = {
@@ -297,13 +364,10 @@
 
             datas.push(person);
             console.log(person);
-            console.log(datas);
-
-
+            //console.log(datas);
+            renderTable(datas);
 
         }
-
-
 
         function getComment(bmi) {
             let Comment, color;
